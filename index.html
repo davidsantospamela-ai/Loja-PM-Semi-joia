@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Lumi Joias: semijoias delicadas para iluminar seus momentos.">
+	<title>Lumi Joias | Semijoias com personalidade</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root { --roxo: #7146c7; --roxo-escuro: #28163f; --lilas: #f1ebff; --azul: #518ad4; --texto: #211b2d; --cinza: #776f83; --linha: #e8e1f1; --branco: #fff; }
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--texto); background: #fcfbfe; font-family: "DM Sans", sans-serif; }
+		button, input, select { font: inherit; }
+		button { cursor: pointer; }
+		.container { width: min(1160px, calc(100% - 36px)); margin: auto; }
+		.topbar { padding: 10px; color: #fff; background: var(--roxo-escuro); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+		header { position: sticky; top: 0; z-index: 10; background: rgba(252, 251, 254, .94); border-bottom: 1px solid var(--linha); backdrop-filter: blur(12px); }
+		nav { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 25px; }
+		.logo { color: var(--texto); font-family: "Playfair Display", serif; font-size: 29px; font-weight: 700; letter-spacing: .07em; text-decoration: none; }
+		.logo span, .purple { color: var(--roxo); }
+		.links { display: flex; gap: 28px; margin-left: auto; }
+		.links a { color: var(--cinza); font-size: 13px; font-weight: 700; text-decoration: none; }
+		.links a:hover { color: var(--roxo); }
+		.nav-actions { display: flex; gap: 9px; }
+		.round-btn { position: relative; display: grid; width: 40px; height: 40px; place-items: center; color: var(--texto); background: transparent; border: 1px solid var(--linha); border-radius: 50%; font-size: 20px; }
+		.round-btn:hover { color: var(--roxo); border-color: var(--roxo); }
+		.cart-total { position: absolute; top: -5px; right: -4px; display: grid; width: 18px; height: 18px; place-items: center; color: white; background: var(--azul); border-radius: 50%; font-size: 10px; }
+		.hero { background: radial-gradient(circle at 7% 40%, #e7ddff, transparent 29%), linear-gradient(120deg, #fbf8ff, #eef5ff); }
+		.hero-grid { display: grid; grid-template-columns: .94fr 1.06fr; align-items: center; gap: 65px; min-height: 560px; padding: 55px 0; }
+		.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 18px; color: var(--roxo); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+		.eyebrow:before { width: 27px; height: 1px; background: var(--roxo); content: ""; }
+		h1, h2, h3 { font-family: "Playfair Display", serif; }
+		h1 { max-width: 570px; margin: 0; font-size: clamp(43px, 5.5vw, 75px); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; }
+		h1 em { color: var(--roxo); font-style: normal; }
+		.hero p { max-width: 450px; margin: 25px 0 30px; color: var(--cinza); font-size: 16px; line-height: 1.75; }
+		.button { display: inline-flex; align-items: center; gap: 15px; padding: 15px 21px; color: #fff; background: var(--roxo); border: 0; border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none; transition: .2s; }
+		.button:hover { background: var(--roxo-escuro); transform: translateY(-2px); }
+		.hero-proof { display: flex; align-items: center; gap: 10px; margin-top: 35px; color: var(--cinza); font-size: 12px; }
+		.hero-proof b { color: var(--texto); }
+		.hero-proof strong { display: grid; width: 31px; height: 31px; place-items: center; color: var(--roxo); background: #fff; border-radius: 50%; box-shadow: 0 5px 15px #d6cbec; }
+		.hero-visual { position: relative; min-height: 470px; }
+		.hero-photo { position: absolute; right: 4%; bottom: 0; width: 78%; height: 420px; border-radius: 170px 170px 10px 10px; box-shadow: 0 20px 45px #b9acd2; }
+		.hero-photo img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
+		.circle { position: absolute; right: -2%; top: 0; width: 175px; height: 175px; border: 1px solid #a995dc; border-radius: 50%; }
+		.circle:after { position: absolute; right: 18px; top: 22px; width: 12px; height: 12px; background: var(--azul); border-radius: 50%; box-shadow: 0 0 0 7px #cfe1fa; content: ""; }
+		.stamp { position: absolute; bottom: 36px; left: 0; display: grid; width: 116px; height: 116px; place-items: center; color: #fff; background: var(--roxo-escuro); border-radius: 50%; font-family: "Playfair Display", serif; font-size: 16px; line-height: 1.15; text-align: center; transform: rotate(-10deg); }
+		.perks { color: #fff; background: var(--roxo-escuro); }
+		.perk-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+		.perk { display: flex; align-items: center; gap: 13px; padding: 23px 18px; border-right: 1px solid #ffffff2e; }
+		.perk:last-child { border: 0; }
+		.perk i { color: #c6b6ff; font-size: 23px; font-style: normal; }
+		.perk b { display: block; margin-bottom: 3px; font-size: 13px; }
+		.perk small { color: #afa5c1; font-size: 11px; }
+		.section { padding: 88px 0; }
+		.section-title { display: flex; align-items: end; justify-content: space-between; margin-bottom: 30px; }
+		h2 { margin: 0; font-size: 42px; font-weight: 600; line-height: 1.1; }
+		.section-title p { max-width: 300px; margin: 0; color: var(--cinza); font-size: 13px; line-height: 1.6; }
+		.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 27px; }
+		.filters { display: flex; gap: 8px; overflow: auto; }
+		.filter { padding: 9px 15px; color: var(--cinza); background: transparent; border: 1px solid var(--linha); border-radius: 99px; font-size: 12px; white-space: nowrap; }
+		.filter:hover, .filter.active { color: #fff; background: var(--roxo); border-color: var(--roxo); }
+		.search { width: 205px; padding: 10px 13px; color: var(--texto); background: #fff; border: 1px solid var(--linha); border-radius: 4px; outline-color: var(--roxo); font-size: 12px; }
+		.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px 17px; }
+		.product[hidden] { display: none; }
+		.product { transition: transform .25s; }
+		.product:hover { transform: translateY(-4px); }
+		.product-image { position: relative; overflow: hidden; aspect-ratio: .82; background: var(--lilas); border-radius: 4px; box-shadow: 0 10px 25px #34205212; }
+		.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+		.product:hover img { transform: scale(1.05); }
+		.tag { position: absolute; top: 12px; left: 12px; padding: 6px 9px; color: var(--roxo-escuro); background: #fff; border-radius: 2px; font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; box-shadow: 0 4px 12px #3420521c; }
+		.add { position: absolute; right: 12px; bottom: 12px; display: grid; width: 39px; height: 39px; place-items: center; color: #fff; background: var(--roxo); border: 0; border-radius: 50%; font-size: 23px; opacity: 1; transition: .2s; }
+		.add:hover, .add:focus { background: var(--roxo-escuro); transform: scale(1.08); }
+		.category { margin-top: 15px; color: var(--roxo); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+		.product h3 { margin: 6px 0; font-size: 19px; font-weight: 600; }
+		.price { font-size: 13px; font-weight: 700; }
+		.price del { margin-left: 5px; color: #aaa3b1; font-size: 11px; font-weight: 400; }
+		.about { color: #fff; background: linear-gradient(110deg, var(--roxo-escuro), #42256b); }
+		.about-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 75px; }
+		.about h2 { font-size: 47px; }
+		.about p { max-width: 440px; margin: 23px 0 28px; color: #d8cee7; line-height: 1.8; }
+		.about .button { color: var(--roxo-escuro); background: #fff; }
+		.about-images { display: grid; grid-template-columns: 1fr .7fr; align-items: end; gap: 14px; }
+		.about-images img { width: 100%; height: 330px; object-fit: cover; }
+		.about-images img:last-child { height: 235px; margin-bottom: 25px; }
+		footer { padding: 25px 0; color: var(--cinza); font-size: 12px; }
+		.footer-row { display: flex; justify-content: space-between; gap: 20px; }
+		.toast { position: fixed; right: 18px; bottom: 18px; z-index: 20; padding: 14px 17px; color: #fff; background: var(--roxo-escuro); border-left: 4px solid var(--azul); box-shadow: 0 10px 30px #2d1b4133; font-size: 13px; opacity: 0; transform: translateY(15px); transition: .25s; pointer-events: none; }
+		.toast.show { opacity: 1; transform: translateY(0); }
+		.cart-panel { position: fixed; inset: 0 0 0 auto; z-index: 30; display: flex; width: min(420px, 100%); flex-direction: column; overflow-y: auto; padding: 25px; background: #fff; box-shadow: -15px 0 40px #2d1b4126; transform: translateX(105%); transition: transform .25s; }
+		.cart-panel.open { transform: translateX(0); }
+		.cart-backdrop { position: fixed; inset: 0; z-index: 25; background: #211b2d66; opacity: 0; pointer-events: none; transition: opacity .25s; }
+		.cart-backdrop.show { opacity: 1; pointer-events: auto; }
+		.cart-head, .cart-total-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
+		.cart-head { padding-bottom: 20px; border-bottom: 1px solid var(--linha); }
+		.cart-head h2 { font-size: 28px; }
+		.close-cart { width: 34px; height: 34px; color: var(--texto); background: transparent; border: 1px solid var(--linha); border-radius: 50%; font-size: 20px; }
+		.cart-items { flex: 0 0 auto; max-height: 30vh; overflow: auto; padding: 18px 0; }
+		.cart-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--linha); font-size: 13px; }
+		.cart-item small { display: block; margin-top: 4px; color: var(--cinza); }
+		.remove-item { color: var(--roxo); background: transparent; border: 0; font-size: 12px; }
+		.cart-empty { color: var(--cinza); font-size: 14px; text-align: center; }
+		.cart-total-row { padding: 18px 0; font-size: 17px; font-weight: 700; }
+		.checkout-form { display: grid; gap: 9px; }
+		.checkout-form input { width: 100%; padding: 11px 12px; border: 1px solid var(--linha); border-radius: 4px; outline-color: var(--roxo); }
+		.checkout-form select { width: 100%; padding: 11px 12px; color: var(--texto); background: #fff; border: 1px solid var(--linha); border-radius: 4px; outline-color: var(--roxo); }
+		.checkout-label { margin-top: 7px; color: var(--cinza); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+		.card-fields { display: grid; gap: 9px; padding: 12px; background: var(--lilas); border-left: 3px solid var(--roxo); }
+		.card-fields[hidden] { display: none; }
+		.tracking-location { display: flex; align-items: center; gap: 8px; margin: 10px 0; color: var(--texto); font-size: 13px; }
+		.location-pin { color: var(--roxo); font-size: 20px; }
+		.map-link { display: inline-block; margin-top: 8px; color: var(--roxo); font-size: 12px; font-weight: 700; }
+		.checkout-form .button { justify-content: center; margin-top: 4px; }
+		.tracking { background: #f4f0fb; }
+		.tracking-box { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: center; }
+		.tracking-copy p { max-width: 390px; color: var(--cinza); line-height: 1.7; }
+		.tracking-form { display: flex; gap: 8px; margin-top: 20px; }
+		.tracking-form input { min-width: 0; flex: 1; padding: 13px; border: 1px solid var(--linha); border-radius: 4px; outline-color: var(--roxo); }
+		.tracking-form .button { white-space: nowrap; }
+		.tracking-result { margin-top: 20px; padding: 20px; background: #fff; border-left: 3px solid var(--roxo); }
+		.tracking-result[hidden] { display: none; }
+		.tracking-result strong { display: block; margin-bottom: 13px; }
+		.tracking-result p { margin: 5px 0; color: var(--cinza); font-size: 13px; }
+		.tracking-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 18px; }
+		.tracking-step { padding-top: 10px; color: #aaa3b1; border-top: 2px solid var(--linha); font-size: 11px; }
+		.tracking-step.done { color: var(--roxo); border-color: var(--roxo); font-weight: 700; }
+		@media (max-width: 850px) { .links { display: none; } .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 30px; } .hero-grid { padding: 55px 0; } .hero-visual { min-height: 390px; } .hero-photo { height: 345px; } .products { grid-template-columns: repeat(2, 1fr); } .add { opacity: 1; } .perk-grid { grid-template-columns: 1fr; } .perk { border-right: 0; border-bottom: 1px solid #ffffff2e; } }
+		@media (max-width: 850px) { .tracking-box { grid-template-columns: 1fr; gap: 20px; } }
+		@media (max-width: 520px) { .container { width: calc(100% - 28px); } .logo { font-size: 23px; } h1 { font-size: 47px; } h2, .about h2 { font-size: 36px; } .section { padding: 65px 0; } .section-title, .toolbar { display: block; } .section-title p { margin-top: 14px; } .search { width: 100%; margin-top: 13px; } .filters { padding-bottom: 4px; margin-top: 20px; } .hero-visual { min-height: 340px; } .hero-photo { height: 295px; } .stamp { width: 95px; height: 95px; font-size: 14px; } .footer-row { display: block; line-height: 1.8; } .tracking-form { display: grid; } }
+	</style>
+</head>
+<body>
+	<div class="topbar">Frete gr&aacute;tis acima de R$ 199 &nbsp; | &nbsp; 10% OFF na primeira compra</div>
+	<header><nav class="container">
+		<a class="logo" href="#inicio">LUMI<span>JOIAS</span></a>
+		<div class="links"><a href="#catalogo">Cole&ccedil;&atilde;o</a><a href="#rastreamento">Rastrear pedido</a><a href="#sobre">Nossa hist&oacute;ria</a></div>
+		<div class="nav-actions"><button class="round-btn" id="searchFocus" aria-label="Ir para busca">⌕</button><button class="round-btn" id="cart" aria-label="Ver carrinho">♧<span class="cart-total">0</span></button></div>
+	</nav></header>
+
+	<main>
+		<section class="hero" id="inicio"><div class="container hero-grid"><div>
+			<div class="eyebrow">Semijoias para iluminar</div><h1>O detalhe que deixa tudo mais <em>seu.</em></h1>
+			<p>Pe&ccedil;as delicadas, marcantes e feitas para acompanhar cada vers&atilde;o de voc&ecirc;.</p><a class="button" href="#catalogo">Comprar agora <span>&rarr;</span></a>
+			<div class="hero-proof"><strong>✦</strong><span><b>+2.000 clientes</b> j&aacute; brilham com a Lumi</span></div>
+		</div><div class="hero-visual"><div class="circle"></div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85" alt="Mulher usando semijoias douradas"></div><div class="stamp">Feito para<br>voc&ecirc; ✦</div></div></div></section>
+
+		<section class="perks"><div class="container perk-grid"><div class="perk"><i>✧</i><span><b>Garantia de 1 ano</b><small>Qualidade que permanece</small></span></div><div class="perk"><i>♢</i><span><b>Embalagem especial</b><small>Pronta para presentear</small></span></div><div class="perk"><i>↝</i><span><b>Troca f&aacute;cil</b><small>Voc&ecirc; compra tranquila</small></span></div></div></section>
+
+		<section class="section" id="catalogo"><div class="container"><div class="section-title"><div><div class="eyebrow">Escolha o seu brilho</div><h2>Explore a cole&ccedil;&atilde;o</h2></div><p>Op&ccedil;&otilde;es para presentear, combinar e criar seu pr&oacute;prio estilo.</p></div>
+			<div class="toolbar"><div class="filters"><button class="filter active" data-filter="todos">Todos</button><button class="filter" data-filter="brincos">Brincos</button><button class="filter" data-filter="colares">Colares</button><button class="filter" data-filter="aneis">An&eacute;is</button><button class="filter" data-filter="pulseiras">Pulseiras</button><button class="filter" data-filter="luxo">Luxo</button></div><input class="search" id="search" type="search" placeholder="Buscar uma joia..."></div>
+			<div class="products" id="products">
+				<article class="product" data-category="brincos" data-name="brinco aurora"><div class="product-image"><span class="tag">Novo</span><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85" alt="Brinco dourado com pedra azul"><button class="add" data-product="Brinco Aurora" aria-label="Adicionar Brinco Aurora">+</button></div><div class="category">Brincos</div><h3>Brinco Aurora</h3><div class="price">R$ 89,90</div></article>
+				<article class="product" data-category="colares" data-name="colar ponto de luz"><div class="product-image"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=85" alt="Colar delicado dourado"><button class="add" data-product="Colar Ponto de Luz" aria-label="Adicionar Colar Ponto de Luz">+</button></div><div class="category">Colares</div><h3>Colar Ponto de Luz</h3><div class="price">R$ 119,90</div></article>
+				<article class="product" data-category="aneis" data-name="anel luz"><div class="product-image"><span class="tag">Queridinho</span><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=85" alt="Anel dourado com pedra"><button class="add" data-product="Anel Luz" aria-label="Adicionar Anel Luz">+</button></div><div class="category">An&eacute;is</div><h3>Anel Luz</h3><div class="price">R$ 79,90 <del>R$ 99,90</del></div></article>
+				<article class="product" data-category="pulseiras" data-name="pulseira mimo"><div class="product-image"><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=700&q=85" alt="Pulseira fina dourada"><button class="add" data-product="Pulseira Mimo" aria-label="Adicionar Pulseira Mimo">+</button></div><div class="category">Pulseiras</div><h3>Pulseira Mimo</h3><div class="price">R$ 109,90</div></article>
+				<article class="product" data-category="brincos" data-name="brinco gotas"><div class="product-image"><img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=700&q=85" alt="Brinco de argola dourado"><button class="add" data-product="Brinco Gotas" aria-label="Adicionar Brinco Gotas">+</button></div><div class="category">Brincos</div><h3>Brinco Gotas</h3><div class="price">R$ 94,90</div></article>
+				<article class="product" data-category="colares" data-name="colar constelacao"><div class="product-image"><span class="tag">Exclusivo</span><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=85" alt="Colar com pingente delicado"><button class="add" data-product="Colar Constelação" aria-label="Adicionar Colar Constelação">+</button></div><div class="category">Colares</div><h3>Colar Constela&ccedil;&atilde;o</h3><div class="price">R$ 139,90</div></article>
+				<article class="product" data-category="aneis" data-name="anel infinito"><div class="product-image"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85" alt="Anel fino dourado"><button class="add" data-product="Anel Infinito" aria-label="Adicionar Anel Infinito">+</button></div><div class="category">An&eacute;is</div><h3>Anel Infinito</h3><div class="price">R$ 69,90</div></article>
+				<article class="product" data-category="pulseiras" data-name="pulseira celestial"><div class="product-image"><img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=700&q=85" alt="Pulseira com pequenos pingentes"><button class="add" data-product="Pulseira Celestial" aria-label="Adicionar Pulseira Celestial">+</button></div><div class="category">Pulseiras</div><h3>Pulseira Celestial</h3><div class="price">R$ 129,90</div></article>
+				<article class="product" data-category="brincos" data-name="brinco lua"><div class="product-image"><span class="tag">Novo</span><img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=700&q=85" alt="Brinco pequeno dourado"><button class="add" data-product="Brinco Lua" aria-label="Adicionar Brinco Lua">+</button></div><div class="category">Brincos</div><h3>Brinco Lua</h3><div class="price">R$ 84,90</div></article>
+				<article class="product" data-category="colares" data-name="colar riviera"><div class="product-image"><span class="tag">Elegante</span><img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=700&q=85" alt="Colar dourado com pedras"><button class="add" data-product="Colar Riviera" aria-label="Adicionar Colar Riviera">+</button></div><div class="category">Colares</div><h3>Colar Riviera</h3><div class="price">R$ 159,90</div></article>
+				<article class="product" data-category="aneis" data-name="anel iris"><div class="product-image"><img src="https://images.unsplash.com/photo-1603561596112-db1d8d7a1a6c?auto=format&fit=crop&w=700&q=85" alt="Anel delicado dourado"><button class="add" data-product="Anel Iris" aria-label="Adicionar Anel Iris">+</button></div><div class="category">An&eacute;is</div><h3>Anel &Iacute;ris</h3><div class="price">R$ 99,90</div></article>
+				<article class="product" data-category="pulseiras" data-name="pulseira serena"><div class="product-image"><span class="tag">Favorito</span><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85" alt="Pulseira delicada dourada"><button class="add" data-product="Pulseira Serena" aria-label="Adicionar Pulseira Serena">+</button></div><div class="category">Pulseiras</div><h3>Pulseira Serena</h3><div class="price">R$ 114,90</div></article>
+				<article class="product" data-category="luxo" data-name="anel imperia diamante ouro 18k"><div class="product-image"><span class="tag">Edi&ccedil;&atilde;o limitada</span><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=85" alt="Anel de ouro 18k com diamante"><button class="add" data-product="Anel Imperia Diamante" aria-label="Adicionar Anel Imperia Diamante">+</button></div><div class="category">Luxo &bull; Ouro 18k</div><h3>Anel Imperia Diamante</h3><div class="price">R$ 8.490,00</div></article>
+				<article class="product" data-category="luxo" data-name="colar royale esmeralda ouro 18k"><div class="product-image"><span class="tag">Pedra preciosa</span><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=85" alt="Colar de ouro com esmeralda"><button class="add" data-product="Colar Royale Esmeralda" aria-label="Adicionar Colar Royale Esmeralda">+</button></div><div class="category">Luxo &bull; Esmeralda</div><h3>Colar Royale Esmeralda</h3><div class="price">R$ 12.900,00</div></article>
+				<article class="product" data-category="luxo" data-name="brinco imperial safira diamante"><div class="product-image"><span class="tag">Alta joalheria</span><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85" alt="Brincos de ouro com safira e diamante"><button class="add" data-product="Brinco Imperial Safira" aria-label="Adicionar Brinco Imperial Safira">+</button></div><div class="category">Luxo &bull; Safira</div><h3>Brinco Imperial Safira</h3><div class="price">R$ 6.750,00</div></article>
+				<article class="product" data-category="luxo" data-name="bracelete maison ouro diamantes"><div class="product-image"><span class="tag">Cole&ccedil;&atilde;o maison</span><img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?auto=format&fit=crop&w=700&q=85" alt="Bracelete de ouro com diamantes"><button class="add" data-product="Bracelete Maison Diamantes" aria-label="Adicionar Bracelete Maison Diamantes">+</button></div><div class="category">Luxo &bull; Diamantes</div><h3>Bracelete Maison Diamantes</h3><div class="price">R$ 18.500,00</div></article>
+				<article class="product" data-category="colares" data-name="colar elo ouro 18k"><div class="product-image"><span class="tag">Ouro 18k</span><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=85" alt="Colar elo em ouro 18k"><button class="add" data-product="Colar Elo Ouro 18k" aria-label="Adicionar Colar Elo Ouro 18k">+</button></div><div class="category">Colares &bull; Ouro 18k</div><h3>Colar Elo Ouro 18k</h3><div class="price">R$ 2.890,00</div></article>
+				<article class="product" data-category="aneis" data-name="anel safira azul ouro branco"><div class="product-image"><span class="tag">Pedra preciosa</span><img src="https://images.unsplash.com/photo-1603561596112-db1d8d7a1a6c?auto=format&fit=crop&w=700&q=85" alt="Anel de ouro branco com safira azul"><button class="add" data-product="Anel Safira Azul" aria-label="Adicionar Anel Safira Azul">+</button></div><div class="category">An&eacute;is &bull; Safira</div><h3>Anel Safira Azul</h3><div class="price">R$ 3.650,00</div></article>
+				<article class="product" data-category="brincos" data-name="brinco aurora ouro branco diamante"><div class="product-image"><span class="tag">Exclusivo</span><img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=700&q=85" alt="Brinco de ouro branco com diamante"><button class="add" data-product="Brinco Aurora Ouro Branco" aria-label="Adicionar Brinco Aurora Ouro Branco">+</button></div><div class="category">Brincos &bull; Diamante</div><h3>Brinco Aurora Ouro Branco</h3><div class="price">R$ 4.290,00</div></article>
+				<article class="product" data-category="pulseiras" data-name="pulseira tennis diamantes ouro branco"><div class="product-image"><span class="tag">Alta joalheria</span><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=700&q=85" alt="Pulseira tennis com diamantes"><button class="add" data-product="Pulseira Tennis Diamantes" aria-label="Adicionar Pulseira Tennis Diamantes">+</button></div><div class="category">Pulseiras &bull; Diamantes</div><h3>Pulseira Tennis Diamantes</h3><div class="price">R$ 9.800,00</div></article>
+			</div>
+		</div></section>
+
+		<section class="section tracking" id="rastreamento"><div class="container tracking-box"><div class="tracking-copy"><div class="eyebrow">Acompanhe sua entrega</div><h2>Onde est&aacute; sua compra?</h2><p>Informe o c&oacute;digo recebido ap&oacute;s finalizar o pedido para consultar o status e a localiza&ccedil;&atilde;o da entrega.</p></div><div><form class="tracking-form" id="trackingForm"><input id="trackingCode" required placeholder="Ex.: LUMI-4821" aria-label="C&oacute;digo do pedido"><button class="button" type="submit">Consultar <span>&rarr;</span></button></form><div class="tracking-result" id="trackingResult" hidden><strong id="trackingTitle"></strong><p id="trackingDetails"></p><div class="tracking-location"><span class="location-pin" aria-hidden="true">⌖</span><span id="trackingAddress"></span></div><a class="map-link" id="mapLink" href="#" target="_blank" rel="noopener">Ver localiza&ccedil;&atilde;o no mapa &rarr;</a><div class="tracking-steps"><span class="tracking-step done">Pedido confirmado</span><span class="tracking-step done">Em prepara&ccedil;&atilde;o</span><span class="tracking-step">A caminho</span></div></div></div></div></section>
+
+		<section class="about" id="sobre"><div class="container about-grid"><div><div class="eyebrow">A beleza do essencial</div><h2>Seu brilho tem uma hist&oacute;ria.</h2><p>A Lumi Joias nasceu para celebrar os pequenos rituais que tornam a vida especial. Cada pe&ccedil;a &eacute; escolhida para combinar com quem voc&ecirc; &eacute; hoje e com tudo o que ainda vai conquistar.</p><a class="button" href="#catalogo">Conhe&ccedil;a nossas pe&ccedil;as <span>&rarr;</span></a></div><div class="about-images"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85" alt="Detalhe de semijoias douradas"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=500&q=85" alt="Pessoa usando colar"></div></div></section>
+	</main>
+	<footer><div class="container footer-row"><span>&copy; 2024 Lumi Joias</span><span>Feito com cuidado para iluminar voc&ecirc;.</span></div></footer>
+	<div class="cart-backdrop" id="cartBackdrop"></div>
+	<aside class="cart-panel" id="cartPanel" aria-label="Carrinho de compras" aria-hidden="true">
+		<div class="cart-head"><h2>Seu carrinho</h2><button class="close-cart" id="closeCart" aria-label="Fechar carrinho">&times;</button></div>
+		<div class="cart-items" id="cartItems"><p class="cart-empty">Seu carrinho ainda est&aacute; vazio.</p></div>
+		<div class="cart-total-row"><span>Total</span><span id="cartPrice">R$ 0,00</span></div>
+		<form class="checkout-form" id="checkoutForm">
+			<input name="name" required placeholder="Seu nome" autocomplete="name">
+			<input name="phone" required placeholder="Seu telefone" inputmode="tel" autocomplete="tel">
+			<input name="address" required placeholder="Endere&ccedil;o de entrega" autocomplete="street-address">
+			<input name="city" required placeholder="Cidade e estado" autocomplete="address-level2">
+			<label class="checkout-label" for="payment">Forma de pagamento</label>
+			<select id="payment" name="payment" required>
+				<option value="">Selecione uma op&ccedil;&atilde;o</option>
+				<option>Pix</option>
+				<option>Cart&atilde;o de cr&eacute;dito</option>
+				<option>Cart&atilde;o de d&eacute;bito</option>
+				<option>Boleto banc&aacute;rio</option>
+			</select>
+			<div class="card-fields" id="cardFields" hidden>
+				<input name="cardNumber" placeholder="N&uacute;mero do cart&atilde;o" inputmode="numeric" autocomplete="cc-number">
+				<input name="cardName" placeholder="Nome no cart&atilde;o" autocomplete="cc-name">
+				<input name="cardExpiry" placeholder="Validade (MM/AA)" inputmode="numeric" autocomplete="cc-exp">
+				<input name="cardCvv" placeholder="CVV" inputmode="numeric" autocomplete="cc-csc">
+			</div>
+			<button class="button" type="submit" id="checkoutButton" disabled>Finalizar pedido <span>&rarr;</span></button>
+		</form>
+	</aside>
+	<div class="toast" id="toast" role="status"></div>
+	<script>
+		const cartTotal = document.querySelector('.cart-total');
+		const toast = document.querySelector('#toast');
+		const cartPanel = document.querySelector('#cartPanel');
+		const cartBackdrop = document.querySelector('#cartBackdrop');
+		const cartItems = document.querySelector('#cartItems');
+		const cartPrice = document.querySelector('#cartPrice');
+		const checkoutButton = document.querySelector('#checkoutButton');
+		const trackingResult = document.querySelector('#trackingResult');
+		const trackingTitle = document.querySelector('#trackingTitle');
+		const trackingDetails = document.querySelector('#trackingDetails');
+		const payment = document.querySelector('#payment');
+		const cardFields = document.querySelector('#cardFields');
+		const cardInputs = cardFields.querySelectorAll('input');
+		const cart = [];
+		function notify(message) { toast.textContent = message; toast.classList.add('show'); window.setTimeout(() => toast.classList.remove('show'), 2200); }
+		function formatPrice(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+		function updatePaymentFields() { const cardPayment = payment.value.includes('Cartão'); cardFields.hidden = !cardPayment; cardInputs.forEach((input) => { input.required = cardPayment; }); }
+		function renderCart() {
+			const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+			const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+			cartTotal.textContent = totalItems;
+			cartPrice.textContent = formatPrice(totalPrice);
+			checkoutButton.disabled = cart.length === 0;
+			cartItems.innerHTML = cart.length ? cart.map((item, index) => `<div class="cart-item"><span>${item.name}<small>${item.quantity} x ${formatPrice(item.price)}</small></span><button class="remove-item" data-index="${index}" type="button">Remover</button></div>`).join('') : '<p class="cart-empty">Seu carrinho ainda est&aacute; vazio.</p>';
+			cartItems.querySelectorAll('.remove-item').forEach((button) => button.addEventListener('click', () => { cart.splice(Number(button.dataset.index), 1); renderCart(); }));
+		}
+		function openCart() { cartPanel.classList.add('open'); cartBackdrop.classList.add('show'); cartPanel.setAttribute('aria-hidden', 'false'); }
+		function closeCart() { cartPanel.classList.remove('open'); cartBackdrop.classList.remove('show'); cartPanel.setAttribute('aria-hidden', 'true'); }
+		document.querySelectorAll('.add').forEach((button) => button.addEventListener('click', () => { const product = button.closest('.product'); const priceText = product.querySelector('.price').textContent.match(/R\$\s*([0-9]+,[0-9]{2})/); const price = Number(priceText[1].replace(',', '.')); const item = cart.find((entry) => entry.name === button.dataset.product); item ? item.quantity += 1 : cart.push({ name: button.dataset.product, price, quantity: 1 }); renderCart(); openCart(); notify(`${button.dataset.product} foi adicionado ao carrinho.`); }));
+		document.querySelectorAll('.filter').forEach((button) => button.addEventListener('click', () => { document.querySelectorAll('.filter').forEach((item) => item.classList.remove('active')); button.classList.add('active'); document.querySelector('#search').value = ''; document.querySelectorAll('.product').forEach((product) => { product.hidden = button.dataset.filter !== 'todos' && product.dataset.category !== button.dataset.filter; }); }));
+		document.querySelector('#search').addEventListener('input', (event) => { const term = event.target.value.toLowerCase(); document.querySelectorAll('.product').forEach((product) => { product.hidden = !product.dataset.name.includes(term); }); });
+		document.querySelector('#searchFocus').addEventListener('click', () => { document.querySelector('#search').focus(); document.querySelector('#catalogo').scrollIntoView({ behavior: 'smooth' }); });
+		document.querySelector('#cart').addEventListener('click', openCart);
+		document.querySelector('#closeCart').addEventListener('click', closeCart);
+		cartBackdrop.addEventListener('click', closeCart);
+		payment.addEventListener('change', updatePaymentFields);
+		document.querySelector('#checkoutForm').addEventListener('submit', (event) => { event.preventDefault(); const order = new FormData(event.currentTarget); const name = order.get('name'); const paymentMethod = order.get('payment'); const code = `LUMI-${Math.floor(1000 + Math.random() * 9000)}`; localStorage.setItem('lumiOrderCode', code); document.querySelector('#trackingCode').value = code; trackingTitle.textContent = `Pedido ${code} confirmado`; trackingDetails.textContent = `Ola, ${name}! Sua compra esta em preparacao. Pagamento: ${paymentMethod}.`; trackingResult.hidden = false; cart.length = 0; renderCart(); event.currentTarget.reset(); updatePaymentFields(); closeCart(); document.querySelector('#rastreamento').scrollIntoView({ behavior: 'smooth' }); notify(`Pedido confirmado! Codigo: ${code}.`); });
+		document.querySelector('#trackingForm').addEventListener('submit', (event) => { event.preventDefault(); const code = document.querySelector('#trackingCode').value.trim().toUpperCase(); const savedCode = localStorage.getItem('lumiOrderCode'); if (code && code === savedCode) { trackingTitle.textContent = `Pedido ${code} encontrado`; trackingDetails.textContent = 'Sua compra esta em preparacao e sera enviada em breve.'; trackingResult.hidden = false; } else { trackingTitle.textContent = 'Pedido nao encontrado'; trackingDetails.textContent = 'Confira o codigo informado ou finalize uma compra para receber seu rastreio.'; trackingResult.hidden = false; } });
+	</script>
+</body>
+</html>
